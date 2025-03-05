@@ -40,6 +40,23 @@
                 embedded
                 arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
         >
+
+            <a-assets>
+                <video
+                        id="vid"
+                        src="assets/asset.mp4"
+                        preload="auto"
+                        response-type="arraybuffer"
+                        loop
+                        crossorigin
+                        webkit-playsinline
+                        autoplay
+                        muted
+                        playsinline
+                ></video>
+            </a-assets>
+
+
             <!-- a-nft is the anchor that defines an Image Tracking entity -->
             <!-- on 'url' use the path to the Image Descriptors created before. -->
             <!-- the path should end with the name without the extension e.g. if file is 'pinball.fset' the path should end with 'pinball' -->
@@ -52,8 +69,12 @@
                     smoothThreshold="5"
             >
                 <!-- as a child of the a-nft entity, you can define the content to show. here's a GLTF model entity -->
-                <a-image
-                        src="assets/asset.png"></a-image>
+                <a-video
+                        src="#vid"
+                        scale="1 1 1"
+                        position="0 0.1 0"
+                        rotation="-90 0 0"
+                ></a-video>
                 </a-entity>
             </a-nft>
             <!-- static camera that moves according to the device movemenents -->
